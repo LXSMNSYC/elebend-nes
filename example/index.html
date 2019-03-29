@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Elebend + NES.css</title>
+    <!-- latest -->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/elebend-js@0.2.1/dist/index.min.js"></script>
+    <script src="../dist/index.js"></script>
+    <script type="text/javascript">
+      const { section, style, p, span, text, hr, label } = Elebend;
+      const { Text, Container, Button, Radio } = ElebendNES;
+
+      document.getElementById('app').appendChild(
+        section(() => {
+          style(`
+            @charset "utf-8";
+            @import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+          `);
+          Container({ class: 'with-title' }, () => {
+            p({ class: 'title' }, 'Texts');
+            Text(span).primary('Primary');
+            text(' ');
+            Text(span).success('Success');
+            text(' ');
+            Text(span).warning('Warning');
+            text(' ');
+            Text(span).error('Error');
+            text(' ');
+            Text(span).disabled('Disabled');
+          });
+          hr();
+          Container({ class: 'with-title' }, () => {
+            p({ class: 'title' }, 'Buttons');
+            Button.primary('Primary');
+            text(' ');
+            Button.success('Success');
+            text(' ');
+            Button.warning('Warning');
+            text(' ');
+            Button.error('Error');
+            text(' ');
+            Button.disabled('Disabled');
+          });
+          hr();
+          Container({ class: 'with-title' }, () => {
+            p({ class: 'title' }, 'Radios');
+
+            Radio('Yes', { name: 'answer', checked: 'true'});
+            Radio('No', { name: 'answer'});
+          });
+        })
+      );
+    </script>
+  </body>
+</html>
